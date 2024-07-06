@@ -20,6 +20,8 @@ A real-time sign language detection and speech conversion system using LSTM, Med
 - Pandas
 - Tables
 - Pygame
+- Tkinter
+- Pillow
 
 ## Installation
 
