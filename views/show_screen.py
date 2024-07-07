@@ -3,7 +3,7 @@ from tkinter import messagebox, simpledialog
 from tkinter.font import BOLD
 
 import utils.generic as utl
-from controllers.model_controller import capture_new_sign, detect_and_talk
+from controllers.capture_controller import capture_new_sign, detect_and_talk
 
 
 class App:
@@ -110,8 +110,12 @@ class App:
             "Capturar nueva seña", "Indique el significado de la nueva palabra"
         )
         if word:
-            res = capture_new_sign(word)
-            print(res)
+            res, name_path = capture_new_sign(word)
+            if res:
+                messagebox.showinfo(
+                    "Resultado de la captura",
+                    f"La muestra de la palabra {word} se encuentra en la carpeta {name_path}",
+                )
 
     def detect_and_talk(self):
         res = detect_and_talk()
