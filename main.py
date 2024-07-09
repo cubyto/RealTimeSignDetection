@@ -1,3 +1,4 @@
 from views.show_screen import App
 
-App()
+if __name__ == "__main__":
+    App()
