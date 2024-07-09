@@ -16,6 +16,11 @@ def create_dir(path):
         os.mkdir(path)
 
 
+def dir_exists(path):
+    # Verify if exist the directory
+    return True if os.path.exists(path) else False
+
+
 def mediapipe_detection(image, model):
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     image.flags.writeable = False
