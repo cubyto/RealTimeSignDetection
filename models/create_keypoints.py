@@ -9,7 +9,7 @@ from utils.model_utils import get_keypoints, insert_keypoints_sequence
 
 def create_keypoints(word_path):
     data = pd.DataFrame([])
-    name_word = os.path.basename(path)
+    name_word = os.path.basename(word_path)
     save_path = os.path.join(KEYPOINTS_DATA_PATH, f"{name_word}.h5")
     if f"{name_word}.h5" in os.listdir(KEYPOINTS_DATA_PATH):
         return False
