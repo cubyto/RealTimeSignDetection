@@ -57,10 +57,11 @@ def model_capture_sign(path, margin_frame=2, min_cant_frames=5, video_device=0):
 
         while video.isOpened():
             ret, frame = video.read()
+            image = frame.copy()
             if not ret:
                 break
 
-            image, results = mediapipe_detection(frame, holistic_model)
+            results = mediapipe_detection(frame, holistic_model)
 
             if capturing:
                 if there_hand(results):

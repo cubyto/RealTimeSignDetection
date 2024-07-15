@@ -3,7 +3,9 @@ from tkinter import messagebox, simpledialog
 from tkinter.font import BOLD
 
 import utils.generic as utl
-from controllers.capture_controller import capture_new_sign, detect_and_talk
+from controllers.capture_controller import capture_new_sign
+from controllers.detect_controller import detect_and_talk
+from controllers.train_controller import train
 
 
 class App:
@@ -60,23 +62,34 @@ class App:
         capture_btn_hover = utl.read_image("./assets/capture_btn_active.png")
         self.create_btn(
             200,
-            100,
+            120,
             capture_btn,
             capture_btn_hover,
             frame_buttons,
             self.capture_new_sign,
         )
 
+        train_btn = utl.read_image("./assets/train_btn.png")
+        train_btn_hover = utl.read_image("./assets/train_btn_active.png")
+        self.create_btn(
+            220,
+            190,
+            train_btn,
+            train_btn_hover,
+            frame_buttons,
+            self.train_model,
+        )
+
         detect_btn = utl.read_image("./assets/detect_btn.png")
         detect_btn_hover = utl.read_image("./assets/detect_btn_active.png")
         self.create_btn(
-            217, 200, detect_btn, detect_btn_hover, frame_buttons, self.detect_and_talk
+            217, 260, detect_btn, detect_btn_hover, frame_buttons, self.detect_and_talk
         )
 
         quit_btn = utl.read_image("./assets/quit_btn.png")
         quit_btn_hover = utl.read_image("./assets/quit_btn_active.png")
         self.create_btn(
-            273, 300, quit_btn, quit_btn_hover, frame_buttons, self.close_window
+            273, 330, quit_btn, quit_btn_hover, frame_buttons, self.close_window
         )
 
         self.window.mainloop()
@@ -126,6 +139,10 @@ class App:
                     "Resultado de la captura",
                     f'Se elimino correctamente la muestra de la palabra "{word}"',
                 )
+
+    def train_model(self):
+        res = train()
+        print(res)
 
     def detect_and_talk(self):
         res = detect_and_talk()
