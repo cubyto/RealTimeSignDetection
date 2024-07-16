@@ -7,7 +7,7 @@ from utils.constants import KEYPOINTS_DATA_PATH
 from utils.model_utils import get_sequences_and_labels, get_word_ids
 
 
-def training_model(model_path, model_num: int, epochs=70):
+def training_model(model_path, model_num: int, epochs=50):
     word_ids = get_word_ids(KEYPOINTS_DATA_PATH)  # ['word1', 'word2', 'word3]
 
     sequences, labels = get_sequences_and_labels(word_ids, model_num)

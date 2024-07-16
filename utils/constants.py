@@ -13,8 +13,12 @@ DATA_PATH = os.path.join(ROOT_PATH, "data")
 RAW_DATA_PATH = os.path.join(DATA_PATH, "raw")
 FRAME_ACTIONS_PATH = os.path.join(RAW_DATA_PATH, "frame_actions")
 PROCESSED_DATA_PATH = os.path.join(DATA_PATH, "processed")
-KERAS_DATA_PATH = os.path.join(PROCESSED_DATA_PATH, "keras")
 KEYPOINTS_DATA_PATH = os.path.join(PROCESSED_DATA_PATH, "keypoints")
+KERAS_DATA_PATH = os.path.join(PROCESSED_DATA_PATH, "keras")
+KERAS_PATH = [
+    os.path.join(KERAS_DATA_PATH, f"actions_{model_num}.keras")
+    for model_num in MODEL_NUMS
+]
 
 # SHOW IMAGE PARAMETERS
 FONT = cv2.FONT_HERSHEY_PLAIN

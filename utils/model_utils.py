@@ -166,7 +166,6 @@ def get_sequences_and_labels(words_id, model_num: int):
     for word_index, word_id in enumerate(words_id):
         hdf_path = os.path.join(KEYPOINTS_DATA_PATH, f"{word_id}.h5")
         data = pd.read_hdf(hdf_path, key="data")
-        print(data)
         for num, df_by_model_num in data.groupby("model_num"):
             if model_num == int(num):
                 for _, df_sample in df_by_model_num.groupby("sample"):
