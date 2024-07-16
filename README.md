@@ -27,6 +27,6 @@ A real-time sign language detection and speech conversion system using LSTM, Med
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/TU_USUARIO/SignSpeak.git
-   cd SignSpeak
+   git clone https://github.com/novato-intlignt/RealTimeSignDetection.git
+   cd RealTimeSignDetection
    ```

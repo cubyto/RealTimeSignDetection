@@ -2,18 +2,23 @@ import os
 
 import cv2
 
+# SETTINGS
+MIN_LENGTH_FRAMES = 5
+LENGTH_KEYPOINTS = 1662
+MODEL_NUMS = [7, 12, 18]
+
 # PATHS
 ROOT_PATH = os.getcwd()
 DATA_PATH = os.path.join(ROOT_PATH, "data")
 RAW_DATA_PATH = os.path.join(DATA_PATH, "raw")
-PROCESSED_DATA_PATH = os.path.join(DATA_PATH, "processed")
 FRAME_ACTIONS_PATH = os.path.join(RAW_DATA_PATH, "frame_actions")
-MODELS_PATH = os.path.join(ROOT_PATH, "models")
-
-MAX_LENGTH_FRAMES = 15
-LENGTH_KEYPOINTS = 1662
-MIN_LENGTH_FRAMES = 5
-MODEL_NAME = f"actions_{MAX_LENGTH_FRAMES}.keras"
+PROCESSED_DATA_PATH = os.path.join(DATA_PATH, "processed")
+KEYPOINTS_DATA_PATH = os.path.join(PROCESSED_DATA_PATH, "keypoints")
+KERAS_DATA_PATH = os.path.join(PROCESSED_DATA_PATH, "keras")
+KERAS_PATH = [
+    os.path.join(KERAS_DATA_PATH, f"actions_{model_num}.keras")
+    for model_num in MODEL_NUMS
+]
 
 # SHOW IMAGE PARAMETERS
 FONT = cv2.FONT_HERSHEY_PLAIN
